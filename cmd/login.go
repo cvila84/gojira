@@ -16,7 +16,9 @@ package cmd
 
 import (
 	"bufio"
+	"crypto/tls"
 	"fmt"
+	"net/http"
 	"os"
 	"strings"
 	"syscall"
@@ -136,9 +138,13 @@ func createJiraClient(jiraURL, username, password string) *jira.Client {
 		password = string(bytePassword)
 	}
 
+	ntp := http.DefaultTransport
+	ntp.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+
 	tp := jira.BasicAuthTransport{
-		Username: strings.TrimSpace(username),
-		Password: strings.TrimSpace(password),
+		Username:  strings.TrimSpace(username),
+		Password:  strings.TrimSpace(password),
+		Transport: ntp,
 	}
 
 	jiraClient, err := jira.NewClient(tp.Client(), jiraURL)
