@@ -1,13 +1,13 @@
 language: go
 
 go:
-  - 1.11.x
+  - 1.12.x
 
 go_import_path: github.com/jurocknsail/gojira
 
 env:
   global:
-    - ARTIFACT_NAME=gojira-windows-amd64.exe
+    - ARTIFACT_NAME=gojira.exe
 
 before_install:
 
