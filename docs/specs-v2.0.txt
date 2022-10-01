@@ -1,0 +1,19 @@
+gojira login : set jira_url, username and ask password to be stored in wincred
+gojira login delete : delete wincred
+
+gojira config : show current configuration (stored in gojira.yaml)
+gojira config project : set board name (and retrieve board ID)
+gojira config pi-sprints : set all sprints for a given PI
+gojira config sprint : set current sprint
+gojira config team : set your team (to later filter sprints)
+
+gojira pi
+
+gojira config snapshot : take and use snapshot to enable delta computation (program board, sprint health evolution, sprint changes)
+
+---
+
+gojira sprints
+gojira pi-wl
+gojira dod
+gojira stories
